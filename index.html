@@ -2,29 +2,49 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة المعرفة المباشرة</title>
-  <link rel="stylesheet" href="style.css">
+  <title>منصة المعرفة الذكية</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    textarea, input { width: 100%; margin-top: 10px; padding: 10px; font-size: 16px; }
+    button { padding: 10px 20px; margin-top: 10px; font-size: 16px; }
+    #chat { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-  <h1>مرحبًا بك في منصة المعرفة المباشرة</h1>
-  <p>هذه المنصة جاهزة للنشر والتوسيع بكل الميزات التي تحتاجها 🔥</p>
+  <h1>📚 منصة المعرفة الذكية</h1>
 
-  <nav>
-    <a href="contact.html">📬 تواصل معنا</a>
-    <a href="about.html">👤 من نحن</a>
-    <a href="market.html">🛒 سوق المعرفة</a>
-    <a href="upload.html">📤 رفع الملفات</a>
-    <a href="chat.html">💬 المحادثات الذكية</a>
-    <a href="docs.html">📚 التوثيق</a>
-    <a href="email.html">📧 البريد الإلكتروني</a>
-    <a href="apps.html">🧩 متجر التطبيقات</a>
-    <a href="login.html">🔐 تسجيل الدخول</a>
-    <a href="user.html">👤 واجهة المستخدم</a>
-    <a href="admin.html">🛠️ لوحة التحكم</a>
-  </nav>
+  <h3>🔗 إضافة مصدر أو منصة:</h3>
+  <input type="text" placeholder="رابط المصدر أو اسم المنصة" id="sourceInput">
+  <button onclick="addSource()">إضافة</button>
+  <ul id="sourceList"></ul>
 
-  <button onclick="showMessage()">اضغط هنا</button>
-  <script src="script.js"></script>
+  <h3>💬 محادثة ذكية:</h3>
+  <textarea id="chatInput" placeholder="اكتب سؤالك هنا..."></textarea>
+  <button onclick="sendChat()">إرسال</button>
+  <div id="chat"></div>
+
+  <script>
+    function addSource() {
+      const input = document.getElementById("sourceInput").value.trim();
+      if (input) {
+        const list = document.getElementById("sourceList");
+        const item = document.createElement("li");
+        item.textContent = input;
+        list.appendChild(item);
+        document.getElementById("sourceInput").value = "";
+      }
+    }
+
+    function sendChat() {
+      const question = document.getElementById("chatInput").value.trim();
+      const chat = document.getElementById("chat");
+      if (question) {
+        chat.innerHTML += `<p><strong>أنت:</strong> ${question}</p>`;
+        chat.innerHTML += `<p><strong>الذكاء الاصطناعي:</strong> 🤖 تم استقبال السؤال، جاري المعالجة...</p>`;
+        document.getElementById("chatInput").value = "";
+      }
+    }
+  </script>
 </body>
 </html>
