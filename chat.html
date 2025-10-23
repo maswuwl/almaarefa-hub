@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💬 المحادثات الذكية - منصة المعرفة</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
     h1 { color: #333; }
@@ -15,7 +14,7 @@
 </head>
 <body>
   <h1>💬 المحادثات الذكية</h1>
-  <p>اكتب أمرًا مثل: <strong>"ابني لي موقع ذكاء اصطناعي مثل شات جي بي تي"</strong></p>
+  <p>اكتب أمرًا مثل: <strong>"ابني لي منصة معرفة فيها محادثات ذكية"</strong></p>
 
   <textarea id="userInput" placeholder="اكتب سؤالك أو أمرك هنا..."></textarea>
   <button onclick="sendMessage()">إرسال</button>
@@ -32,10 +31,9 @@
         return;
       }
 
-      // توليد مشروع مبدئي حسب الأمر
-      if (input.includes("ذكاء اصطناعي") || input.includes("شات جي بي تي")) {
-        response.innerHTML = `✅ تم استقبال الأمر: ${input}\n\n🚀 جاري توليد مشروع موقع ذكاء اصطناعي...\n\n📄 <strong>index.html</strong>\n\n` +
-        `<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n  <meta charset="UTF-8">\n  <title>مساعد ذكي</title>\n</head>\n<body>\n  <h1>🤖 مساعد الذكاء الاصطناعي</h1>\n  <textarea placeholder="اكتب سؤالك هنا..."></textarea>\n  <button>إرسال</button>\n  <div id="reply">...</div>\n</body>\n</html>`;
+      if (input.includes("منصة معرفة") && input.includes("محادثات ذكية")) {
+        response.innerHTML = `✅ تم استقبال الأمر: ${input}\n\n🚀 جاري توليد مشروع منصة معرفة...\n\n📄 <strong>index.html</strong>\n\n` +
+        `<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n  <meta charset="UTF-8">\n  <title>منصة المعرفة</title>\n</head>\n<body>\n  <h1>📚 منصة المعرفة</h1>\n  <p>ابدأ محادثة ذكية:</p>\n  <textarea placeholder="اكتب سؤالك هنا..."></textarea>\n  <button onclick="alert('🤖 تم إرسال السؤال للذكاء الاصطناعي')">إرسال</button>\n  <div id="reply">...</div>\n</body>\n</html>`;
       } else {
         response.innerHTML = `✅ تم استقبال الأمر: ${input}\n\n⏳ جاري تحليل الطلب...\n📦 سيتم تنفيذ الأمر قريبًا داخل المنصة.`;
       }
