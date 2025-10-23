@@ -2,19 +2,44 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🛠️ لوحة التحكم - منصة المعرفة</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🛠️ إدارة المنصة - منصة المعرفة</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input[type="checkbox"] { margin-left: 10px; }
+    #status { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-  <h1>🛠️ لوحة تحكم المسؤول</h1>
-  <p>أدوات الإدارة والتحكم بالمحتوى:</p>
-  <ul>
-    <li>📊 مراجعة الطلبات</li>
-    <li>📝 تعديل الصفحات</li>
-    <li>📦 إدارة السوق</li>
-    <li>👥 إدارة المستخدمين</li>
-    <li>📤 مراجعة الملفات المرفوعة</li>
-  </ul>
+  <h1>🛠️ إدارة المنصة</h1>
+  <p>تحكم في الميزات والمصادر المرتبطة:</p>
+
+  <label>
+    <input type="checkbox" checked disabled />
+    ✅ تفعيل المحادثة الذكية
+  </label>
+
+  <label>
+    <input type="checkbox" checked disabled />
+    ✅ ربط المصدر التلقائي
+  </label>
+
+  <label>
+    <input type="checkbox" checked disabled />
+    ✅ دعم توليد المشاريع
+  </label>
+
+  <label>
+    <input type="checkbox" checked disabled />
+    ✅ دعم التعليم الذكي
+  </label>
+
+  <div id="status"></div>
+
+  <script>
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+    document.getElementById("status").innerHTML = `🔗 المصدر المرتبط تلقائيًا: ${sourceURL}\n📦 كل الميزات مفعّلة تلقائيًا.`;
+  </script>
 </body>
 </html>
