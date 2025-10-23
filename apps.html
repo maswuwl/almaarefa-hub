@@ -2,18 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🧩 متجر التطبيقات - منصة المعرفة</title>
-  <link rel="stylesheet" href="style.css">
+  <title>📱 التطبيقات الذكية - منصة المعرفة</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; background: #fff; padding: 10px; border: 1px solid #ccc; }
+    #status { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-  <h1>🧩 متجر التطبيقات</h1>
-  <p>اختر من بين مجموعة من التطبيقات الجاهزة لتوسيع قدرات منصتك:</p>
+  <h1>📱 التطبيقات الذكية</h1>
+  <p>اختر تطبيقًا أو أنشئ تطبيقًا جديدًا بأمر مباشر:</p>
+
   <ul>
-    <li>📱 تطبيق دردشة ذكية</li>
-    <li>📊 لوحة تحكم تفاعلية</li>
-    <li>📂 مدير ملفات سحابي</li>
-    <li>📨 نظام تذاكر دعم فني</li>
+    <li>📦 تطبيق إدارة دروس</li>
+    <li>🧠 تطبيق تقييم طلاب</li>
+    <li>📊 تطبيق تحليل نتائج</li>
+    <li>💬 تطبيق محادثة تعليمية</li>
   </ul>
+
+  <div id="status"></div>
+
+  <script>
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+    document.getElementById("status").innerHTML = `✅ المصدر الذكي مرتبط تلقائيًا: ${sourceURL}\n🧩 التطبيقات قابلة للتوليد حسب أوامرك.`;
+  </script>
 </body>
 </html>
