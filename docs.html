@@ -2,19 +2,45 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 التوثيق - منصة المعرفة</title>
-  <link rel="stylesheet" href="style.css">
+  <title>📄 التوثيق الرسمي - منصة المعرفة</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    textarea { width: 100%; height: 100px; font-size: 16px; margin-top: 10px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+    #docOutput { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; white-space: pre-wrap; }
+  </style>
 </head>
 <body>
-  <h1>📚 التوثيق</h1>
-  <p>هنا تجد شرحًا مفصلًا لكيفية استخدام المنصة، وتكاملها مع أدوات الذكاء الاصطناعي، وطرق التخصيص.</p>
-  <ul>
-    <li>🔹 كيفية إنشاء مشروع جديد</li>
-    <li>🔹 ربط المنصة بـ GitHub و Vercel</li>
-    <li>🔹 إضافة صفحات ومكونات</li>
-    <li>🔹 تفعيل المحادثات الذكية</li>
-    <li>🔹 إدارة الملفات والمستخدمين</li>
-  </ul>
+  <h1>📄 التوثيق الرسمي</h1>
+  <p>اكتب اسم الميزة أو الصفحة، وسأولّد لك وصفًا ذكيًا:</p>
+
+  <textarea id="docInput" placeholder="مثال: صفحة التعليم الذكي..."></textarea>
+  <button onclick="generateDoc()">توليد التوثيق</button>
+
+  <div id="docOutput"></div>
+
+  <script>
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+
+    function generateDoc() {
+      const input = document.getElementById("docInput").value.trim();
+      const docOutput = document.getElementById("docOutput");
+
+      if (!input) {
+        docOutput.innerHTML = "❌ الرجاء كتابة اسم ميزة أو صفحة.";
+        return;
+      }
+
+      docOutput.innerHTML = `✅ تم استقبال الطلب: ${input}\n🔗 تم ربط المصدر تلقائيًا: ${sourceURL}\n\n📄 جاري توليد التوثيق...\n`;
+
+      // مثال توثيق ذكي
+      if (input.includes("التعليم")) {
+        docOutput.innerHTML += `📘 <strong>صفحة التعليم الذكي:</strong>\nواجهة تفاعلية تتيح للمستخدم طرح الأسئلة التعليمية وتلقي إجابات ذكية فورية، مع دعم توليد المحتوى التعليمي تلقائيًا.`;
+      } else {
+        docOutput.innerHTML += `🧠 سيتم تحليل الطلب وتوليد وصف ذكي قريبًا.`;
+      }
+    }
+  </script>
 </body>
 </html>
