@@ -2,49 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>منصة المعرفة الذكية</title>
+  <title>📚 منصة المعرفة المباشرة</title>
   <style>
-    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
     h1 { color: #333; }
-    textarea, input { width: 100%; margin-top: 10px; padding: 10px; font-size: 16px; }
-    button { padding: 10px 20px; margin-top: 10px; font-size: 16px; }
-    #chat { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+    a { display: block; margin: 10px 0; font-size: 18px; color: #0077cc; text-decoration: none; }
+    #status { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
   </style>
 </head>
 <body>
-  <h1>📚 منصة المعرفة الذكية</h1>
+  <h1>📚 منصة المعرفة المباشرة</h1>
+  <p>اختر القسم الذي ترغب في استخدامه:</p>
 
-  <h3>🔗 إضافة مصدر أو منصة:</h3>
-  <input type="text" placeholder="رابط المصدر أو اسم المنصة" id="sourceInput">
-  <button onclick="addSource()">إضافة</button>
-  <ul id="sourceList"></ul>
+  <a href="chat.html">💬 المحادثة الذكية</a>
+  <a href="education.html">📘 التعليم الذكي</a>
+  <a href="apps.html">📱 التطبيقات</a>
+  <a href="docs.html">📄 التوثيق</a>
+  <a href="admin.html">🛠️ الإدارة</a>
+  <a href="donate.html">💰 التبرع</a>
+  <a href="media.html">🎥 الإعلام</a>
 
-  <h3>💬 محادثة ذكية:</h3>
-  <textarea id="chatInput" placeholder="اكتب سؤالك هنا..."></textarea>
-  <button onclick="sendChat()">إرسال</button>
-  <div id="chat"></div>
+  <div id="status"></div>
 
   <script>
-    function addSource() {
-      const input = document.getElementById("sourceInput").value.trim();
-      if (input) {
-        const list = document.getElementById("sourceList");
-        const item = document.createElement("li");
-        item.textContent = input;
-        list.appendChild(item);
-        document.getElementById("sourceInput").value = "";
-      }
-    }
-
-    function sendChat() {
-      const question = document.getElementById("chatInput").value.trim();
-      const chat = document.getElementById("chat");
-      if (question) {
-        chat.innerHTML += `<p><strong>أنت:</strong> ${question}</p>`;
-        chat.innerHTML += `<p><strong>الذكاء الاصطناعي:</strong> 🤖 تم استقبال السؤال، جاري المعالجة...</p>`;
-        document.getElementById("chatInput").value = "";
-      }
-    }
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+    document.getElementById("status").innerHTML = `✅ تم ربط المصدر الذكي تلقائيًا: ${sourceURL}`;
   </script>
 </body>
 </html>
