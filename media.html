@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>🎥 الإعلام الذكي - منصة المعرفة</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    input, button, textarea { width: 100%; font-size: 16px; margin-top: 10px; padding: 10px; }
+    #mediaOutput { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>🎥 الإعلام الذكي</h1>
+  <p>ارفع ملفًا إعلاميًا (صورة، فيديو، صوت)، وسأولّد لك وصفًا ذكيًا:</p>
+
+  <input type="file" id="mediaFile" accept="image/*,video/*,audio/*" />
+  <textarea id="mediaNote" placeholder="اكتب ملاحظتك أو نوع الملف..."></textarea>
+  <button onclick="analyzeMedia()">تحليل الملف</button>
+
+  <div id="mediaOutput"></div>
+
+  <script>
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+
+    function analyzeMedia() {
+      const file = document.getElementById("mediaFile").files[0];
+      const note = document.getElementById("mediaNote").value.trim();
+      const mediaOutput = document.getElementById("mediaOutput");
+
+      if (!file) {
+        mediaOutput.innerHTML = "❌ الرجاء رفع ملف إعلامي أولًا.";
+        return;
+      }
+
+      mediaOutput.innerHTML = `✅ تم استقبال الملف: ${file.name}\n🔗 تم ربط المصدر تلقائيًا: ${sourceURL}\n\n📦 جاري تحليل المحتوى...\n`;
+
+      if (file.type.includes("image")) {
+        mediaOutput.innerHTML += `🖼️ هذا ملف صورة.\n📘 سيتم توليد وصف بصري ذكي قريبًا.`;
+      } else if (file.type.includes("video")) {
+        mediaOutput.innerHTML += `🎬 هذا ملف فيديو.\n📘 سيتم توليد وصف مرئي ذكي قريبًا.`;
+      } else if (file.type.includes("audio")) {
+        mediaOutput.innerHTML += `🔊 هذا ملف صوتي.\n📘 سيتم توليد وصف سمعي ذكي قريبًا.`;
+      } else {
+        mediaOutput.innerHTML += `🧠 نوع الملف غير مدعوم حاليًا.`;
+      }
+    }
+  </script>
+</body>
+</html>
