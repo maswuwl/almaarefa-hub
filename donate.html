@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>💰 التبرع الذكي - منصة المعرفة</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #333; }
+    select, textarea, button { width: 100%; font-size: 16px; margin-top: 10px; padding: 10px; }
+    #donateOutput { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>💰 التبرع الذكي</h1>
+  <p>اختر نوع التبرع، وسأولّد لك الطريقة المناسبة:</p>
+
+  <select id="donateType">
+    <option value="معرفي">📘 تبرع معرفي (محتوى، دروس)</option>
+    <option value="مالي">💵 تبرع مالي</option>
+    <option value="تطوعي">🤝 تبرع تطوعي (وقت، مساهمة)</option>
+  </select>
+
+  <textarea id="donateNote" placeholder="اكتب ملاحظتك أو نوع التبرع..."></textarea>
+  <button onclick="generateDonate()">توليد طريقة التبرع</button>
+
+  <div id="donateOutput"></div>
+
+  <script>
+    const sourceURL = "https://api.almaarefa.ai/source/chatinterface";
+
+    function generateDonate() {
+      const type = document.getElementById("donateType").value;
+      const note = document.getElementById("donateNote").value.trim();
+      const donateOutput = document.getElementById("donateOutput");
+
+      donateOutput.innerHTML = `✅ نوع التبرع: ${type}\n🔗 تم ربط المصدر تلقائيًا: ${sourceURL}\n\n📦 جاري تجهيز طريقة التبرع...\n`;
+
+      if (type === "مالي") {
+        donateOutput.innerHTML += `💳 يمكنك التبرع عبر الرابط الآمن: https://almaarefa.vercel.app/pay\nأو التواصل معنا لتفعيل دعم مالي مباشر.`;
+      } else if (type === "معرفي") {
+        donateOutput.innerHTML += `📘 أرسل لنا المحتوى أو الدروس عبر صفحة التعليم، وسيتم إضافتها للمنصة باسمك.`;
+      } else if (type === "تطوعي") {
+        donateOutput.innerHTML += `🤝 سجل مساهمتك عبر البريد: contribute@almaarefa.ai\nوسنرد عليك خلال 24 ساعة.`;
+      } else {
+        donateOutput.innerHTML += `🧠 سيتم تحليل نوع التبرع وتوليد طريقة مناسبة قريبًا.`;
+      }
+    }
+  </script>
+</body>
+</html>
